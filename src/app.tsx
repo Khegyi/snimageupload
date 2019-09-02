@@ -69,7 +69,8 @@ export const App: React.FunctionComponent = () => {
       loadImages()
       setUploaddata(false)
     }
-  }, [loadImages, uploaddata])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [uploaddata])
 
   /**
    *  Close the Details View.
@@ -79,7 +80,8 @@ export const App: React.FunctionComponent = () => {
      * Fetches the images from the repository.
      */
     loadImages()
-  }, [loadImages, repo])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [repo])
   return (
     <div
       style={{
