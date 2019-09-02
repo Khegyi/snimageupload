@@ -8,7 +8,7 @@ import GridListTileBar from '@material-ui/core/GridListTileBar'
 import { useRepository } from '../hooks/use-repository'
 
 interface AdvancedGridprops {
-  openFunction: (imageIndex: number, openInfoTab: boolean) => void
+  //openFunction: (imageIndex: number, openInfoTab: boolean) => void
   imgList: Image[]
 }
 
@@ -61,7 +61,7 @@ export const AdvancedGridList: React.FunctionComponent<AdvancedGridprops> = prop
             <img
               className={classes.imgTile}
               src={repo.configuration.repositoryUrl + tile.Path}
-              onClick={() => props.openFunction(index, true)}
+              // onClick={() => props.openFunction(index, true)}
               alt={tile.Description}
             />
             <GridListTileBar
