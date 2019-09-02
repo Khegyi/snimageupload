@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { ConstantContent } from '@sensenet/client-core'
-import { Image, User } from '@sensenet/default-content-types'
+import { Image } from '@sensenet/default-content-types'
 import { CssBaseline } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import moment from 'moment'
 import snLogo from './assets/sensenet_logo_transparent.png'
 import { useRepository } from './hooks/use-repository'
 import { AdvancedGridList } from './components/AdvancedGridList'
 import { SimpleAppBar } from './components/SimpleAppBar'
 
-interface SelectedImage {
+/**interface SelectedImage {
   imgIndex: number
   imgPath: string
   imgTitle: string
@@ -19,7 +18,7 @@ interface SelectedImage {
   imgCreationDate: string
   imgSize: string
   imgDownloadUrl: string
-}
+}*/
 export const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
@@ -40,7 +39,7 @@ export const App: React.FunctionComponent = () => {
   const repo = useRepository()
   const [data, setData] = useState<Image[]>([])
   const [uploaddata, setUploaddata] = useState<boolean>(false)
-  const [selectedimage, setSelectedimage] = React.useState<SelectedImage>({
+  /** const [selectedimage, setSelectedimage] = React.useState<SelectedImage>({
     imgIndex: 0,
     imgPath: '',
     imgTitle: '',
@@ -50,7 +49,7 @@ export const App: React.FunctionComponent = () => {
     imgCreationDate: '',
     imgSize: '',
     imgDownloadUrl: '',
-  })
+  }) */
   /**
    * Sets the UploadData
    */
@@ -61,11 +60,11 @@ export const App: React.FunctionComponent = () => {
    * Sets the Selected Image
    * @param {number} imageIndex Seletected number's index.
    */
-  function getSelectedImage(imageIndex: number) {
+  /**function getSelectedImage(imageIndex: number) {
     const selectedImage = data[imageIndex]
     const avatarUser = selectedImage.CreatedBy as User
-    const avatarUserAvatarUrl = avatarUser.Avatar ? avatarUser.Avatar.Url : ''
-
+     const avatarUserAvatarUrl = avatarUser.Avatar ? avatarUser.Avatar.Url : ''
+    
     setSelectedimage({
       imgIndex: imageIndex,
       imgPath: repo.configuration.repositoryUrl + selectedImage.Path,
@@ -80,8 +79,8 @@ export const App: React.FunctionComponent = () => {
       imgDownloadUrl: selectedImage.Binary
         ? repo.configuration.repositoryUrl + selectedImage.Binary.__mediaresource.media_src
         : '',
-    })
-  }
+    })  
+  } */
   /**
    *  Close the Details View.
    */
@@ -143,7 +142,7 @@ export const App: React.FunctionComponent = () => {
       }}>
       <CssBaseline />
       <SimpleAppBar uploadsetdata={setUploaddataFunction} />
-      <AdvancedGridList openFunction={getSelectedImage} imgList={data} />
+      <AdvancedGridList imgList={data} />
     </div>
   )
 }

@@ -1,9 +1,8 @@
 import React from 'react'
 import CloudUpload from '@material-ui/icons/CloudUpload'
 import { ConstantContent } from '@sensenet/client-core'
-import { Button, Fab, IconButton } from '@material-ui/core'
+import { Fab, IconButton } from '@material-ui/core'
 import CloseIcon from '@material-ui/icons/Close'
-import { amber, green } from '@material-ui/core/colors'
 import Snackbar from '@material-ui/core/Snackbar'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import { useRepository } from '../hooks/use-repository'
@@ -55,11 +54,7 @@ export const UploadControll: React.FunctionComponent<UploadControllProps> = prop
    * Handle Uploaded File
    * @param e any
    */
-  function handleClose(event: React.SyntheticEvent | React.MouseEvent, reason?: string) {
-    if (reason === 'clickaway') {
-      return
-    }
-
+  function handleClose() {
     setOpen(false)
   }
 
