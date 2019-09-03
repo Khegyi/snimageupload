@@ -1,33 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Image, User } from '@sensenet/default-content-types'
 import { IconButton } from '@material-ui/core'
 import GridList from '@material-ui/core/GridList'
 import { makeStyles } from '@material-ui/core/styles'
 import GridListTile from '@material-ui/core/GridListTile'
 import GridListTileBar from '@material-ui/core/GridListTileBar'
+import { ConstantContent } from '@sensenet/client-core'
 import { useRepository } from '../hooks/use-repository'
+import { DropFileArea } from './DropFileArea'
 
 interface AdvancedGridprops {
   //openFunction: (imageIndex: number, openInfoTab: boolean) => void
   imgList: Image[]
+  uploadsetdata: () => void
+  notificationControll: () => void
 }
 
 export const useStyles = makeStyles(theme => ({
   root: {
-    display: 'flex',
-    flexWrap: 'wrap',
+    width: '75%',
     justifyContent: 'space-around',
     overflow: 'visible',
     backgroundColor: theme.palette.background.paper,
     marginTop: '100px',
   },
   gridList: {
-    width: '75%',
     height: 'auto',
     transform: 'translateZ(0)',
   },
   imgTile: {
-    cursor: 'pointer',
+    cursor: 'default',
   },
   icon: {
     color: 'white',
@@ -41,6 +43,7 @@ export const useStyles = makeStyles(theme => ({
  * Display Images from repository
  */
 export const AdvancedGridList: React.FunctionComponent<AdvancedGridprops> = props => {
+  const [isDragOver, setDragOver] = useState(false)
   const classes = useStyles()
   const repo = useRepository()
   /**
@@ -53,28 +56,45 @@ export const AdvancedGridList: React.FunctionComponent<AdvancedGridprops> = prop
     tilenumber = tilenumber === 0 ? 2 : 1
     return tilenumber
   }
+  /**
+   * Determines which image should be full width
+   * @param {number} anumber Seletected number's index.
+   * @returns {int} 2 for full width, 1 for half size.
+   */
+  function DragSetter(onoff: boolean) {
+    setDragOver(onoff)
+    console.log(onoff)
+  }
   return (
     <div className={classes.root}>
-      <GridList cellHeight={200} spacing={1} className={classes.gridList}>
-        {props.imgList.map((tile, index) => (
-          <GridListTile key={tile.Id} cols={pickTile(index)} rows={pickTile(index)}>
-            <img
-              className={classes.imgTile}
-              src={repo.configuration.repositoryUrl + tile.Path}
-              // onClick={() => props.openFunction(index, true)}
-              alt={tile.Description}
-            />
-            <GridListTileBar
-              title={tile.DisplayName}
-              titlePosition="bottom"
-              subtitle={<span>by: {(tile.CreatedBy as User).FullName}</span>}
-              actionIcon={<IconButton aria-label={`star ${tile.DisplayName}`} className={classes.icon}></IconButton>}
-              actionPosition="left"
-              className={classes.titleBar}
-            />
-          </GridListTile>
-        ))}
-      </GridList>
+      <DropFileArea
+        uploadPath={`${ConstantContent.PORTAL_ROOT.Path}/Content/IT/ImageLibrary`}
+        style={{ display: 'inline-block' }}
+        uploadsetdata={props.uploadsetdata}
+        notificationControll={props.notificationControll}
+        setDragOver={DragSetter}
+        isDragOver={isDragOver}>
+        <GridList cellHeight={200} spacing={1} style={{ opacity: isDragOver ? 0.5 : 1 }} className={classes.gridList}>
+          {props.imgList.map((tile, index) => (
+            <GridListTile key={tile.Id} cols={pickTile(index)} rows={pickTile(index)}>
+              <img
+                className={classes.imgTile}
+                src={repo.configuration.repositoryUrl + tile.Path}
+                // onClick={() => props.openFunction(index, true)}
+                alt={tile.Description}
+              />
+              <GridListTileBar
+                title={tile.DisplayName}
+                titlePosition="bottom"
+                subtitle={<span>by: {(tile.CreatedBy as User).FullName}</span>}
+                actionIcon={<IconButton aria-label={`star ${tile.DisplayName}`} className={classes.icon}></IconButton>}
+                actionPosition="left"
+                className={classes.titleBar}
+              />
+            </GridListTile>
+          ))}
+        </GridList>
+      </DropFileArea>
     </div>
   )
 }

@@ -5,6 +5,7 @@ import { UploadControll } from './UploadControll'
 
 interface SimpleAppBarProps {
   uploadsetdata: () => void
+  notificationControll: () => void
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -43,7 +44,7 @@ export const SimpleAppBar: React.FunctionComponent<SimpleAppBarProps> = props =>
             Photos
           </Typography>
           <IconButton edge="start" color="inherit" aria-label="Close">
-            <UploadControll uploadsetdata={props.uploadsetdata} />
+            <UploadControll uploadsetdata={props.uploadsetdata} notificationControll={props.notificationControll} />
           </IconButton>
         </Toolbar>
       </AppBar>
