@@ -69,7 +69,7 @@ export const DropFileArea: React.FunctionComponent<{
           transition: 'opacity 300ms',
         }}>
         <CloudUploadTwoTone
-          style={{ width: '100%', position: 'absolute', marginTop: `${scrollPosition - 360}px`, height: 'auto' }}
+          style={{ width: '100%', position: 'absolute', marginTop: `${scrollPosition}px`, height: '250px' }}
         />
       </div>
       {props.children}
