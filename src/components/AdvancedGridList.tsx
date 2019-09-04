@@ -10,10 +10,9 @@ import { useRepository } from '../hooks/use-repository'
 import { DropFileArea } from './DropFileArea'
 
 interface AdvancedGridprops {
-  //openFunction: (imageIndex: number, openInfoTab: boolean) => void
   imgList: Image[]
   uploadsetdata: () => void
-  notificationControll: () => void
+  notificationControll: (onoff: boolean) => void
 }
 
 export const useStyles = makeStyles(theme => ({
@@ -46,6 +45,7 @@ export const AdvancedGridList: React.FunctionComponent<AdvancedGridprops> = prop
   const [isDragOver, setDragOver] = useState(false)
   const classes = useStyles()
   const repo = useRepository()
+
   /**
    * Determines which image should be full width
    * @param {number} anumber Seletected number's index.
@@ -57,13 +57,11 @@ export const AdvancedGridList: React.FunctionComponent<AdvancedGridprops> = prop
     return tilenumber
   }
   /**
-   * Determines which image should be full width
-   * @param {number} anumber Seletected number's index.
-   * @returns {int} 2 for full width, 1 for half size.
+   * Sets the isDragOver state true or false
+   * @param {boolean} onoff Seletected number's index.
    */
   function DragSetter(onoff: boolean) {
     setDragOver(onoff)
-    console.log(onoff)
   }
   return (
     <div className={classes.root}>
@@ -80,7 +78,6 @@ export const AdvancedGridList: React.FunctionComponent<AdvancedGridprops> = prop
               <img
                 className={classes.imgTile}
                 src={repo.configuration.repositoryUrl + tile.Path}
-                // onClick={() => props.openFunction(index, true)}
                 alt={tile.Description}
               />
               <GridListTileBar

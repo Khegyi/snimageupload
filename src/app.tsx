@@ -34,28 +34,28 @@ export const App: React.FunctionComponent = () => {
   const classes = useStyles()
   const [isNotificationShown, ShowNotification] = React.useState<boolean>(false)
   const [uploaddata, setUploaddata] = React.useState<boolean>(false)
-  /**
-   * Handle Uploaded File
-   * @param e any
+
+  /** Display the notificationbar about successful upload
+   * @param {boolean} switcher Should the notification shown or not
    */
-  function DisplayNotification() {
-    ShowNotification(true)
+  function DisplayNotification(switcher: boolean) {
+    ShowNotification(switcher)
   }
   /**
-   * Handle Uploaded File
-   * @param e any
+   * Hide the notificationbar
    */
   function CloseNotfication() {
     ShowNotification(false)
   }
   /**
    * Sets the UploadData
+   * Determinate whatever an upload has accord or not
    */
   function setUploaddataFunction() {
     setUploaddata(true)
   }
   /**
-   *  Close the Details View.
+   * Fetches the images from the repository.
    */
   async function loadImages(): Promise<void> {
     const result = await repo.loadCollection<Image>({
@@ -77,14 +77,7 @@ export const App: React.FunctionComponent = () => {
     })
     setData(result.d.results)
   }
-  /**
-   *  Close the Details View.
-   */
   useEffect(() => {
-    /**
-     * Fetches the images from the repository.
-     */
-    console.log(uploaddata)
     if (uploaddata) {
       loadImages()
       setUploaddata(false)
@@ -92,13 +85,7 @@ export const App: React.FunctionComponent = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [uploaddata])
 
-  /**
-   *  Close the Details View.
-   */
   useEffect(() => {
-    /**
-     * Fetches the images from the repository.
-     */
     loadImages()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [repo])

@@ -1,28 +1,24 @@
 import CloudUploadTwoTone from '@material-ui/icons/CloudUploadTwoTone'
-import React, { useState } from 'react'
-//import { UploadProgressInfo } from '@sensenet/client-core'
-//import { ObservableValue } from '@sensenet/client-utils'
-import { /* useInjector,*/ useRepository } from '../hooks/use-repository'
+import React, { useEffect, useState } from 'react'
+import { useRepository } from '../hooks/use-repository'
 
 export const DropFileArea: React.FunctionComponent<{
   uploadPath: string
   style?: React.CSSProperties
   uploadsetdata: () => void
-  notificationControll: () => void
+  notificationControll: (onoff: boolean) => void
   setDragOver: (onoff: boolean) => void
   isDragOver: boolean
 }> = props => {
-  //const injector = useInjector()
   const repo = useRepository()
-  /* const [progressObservable] = useState(new ObservableValue<UploadProgressInfo>())
+  const [scrollPosition, setScroll] = useState(0)
 
   useEffect(() => {
-    const subscription = progressObservable.subscribe(p =>
-      injector.getInstance(UploadTracker).onUploadProgress.setValue({ progress: p, repo }),
-    )
-    return () => subscription.dispose()
-  }, [injector, progressObservable, repo])
-*/
+    window.onscroll = function() {
+      setScroll(window.pageYOffset)
+    }
+  }, [])
+
   return (
     <div
       style={{
@@ -36,19 +32,16 @@ export const DropFileArea: React.FunctionComponent<{
       onDragEnter={ev => {
         ev.stopPropagation()
         ev.preventDefault()
-        console.log('onDragEnter')
         props.setDragOver(true)
       }}
       onDragLeave={ev => {
         ev.stopPropagation()
         ev.preventDefault()
-        console.log('onDragLeave')
         props.setDragOver(false)
       }}
       onDragOver={ev => {
         ev.stopPropagation()
         ev.preventDefault()
-        console.log('onDragOver')
         props.setDragOver(true)
       }}
       onDrop={async ev => {
@@ -64,8 +57,7 @@ export const DropFileArea: React.FunctionComponent<{
           contentTypeName: 'Image',
         })
         props.uploadsetdata()
-        props.notificationControll()
-        console.log('draganddrop')
+        props.notificationControll(true)
       }}>
       <div
         style={{
@@ -77,7 +69,7 @@ export const DropFileArea: React.FunctionComponent<{
           transition: 'opacity 300ms',
         }}>
         <CloudUploadTwoTone
-          style={{ width: '100%', position: 'absolute', transform: 'translateY(-20%)', height: 'auto' }}
+          style={{ width: '100%', position: 'absolute', marginTop: `${scrollPosition - 360}px`, height: 'auto' }}
         />
       </div>
       {props.children}

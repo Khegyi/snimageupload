@@ -7,7 +7,7 @@ import { useRepository } from '../hooks/use-repository'
 
 interface UploadControllProps {
   uploadsetdata: () => void
-  notificationControll: () => void
+  notificationControll: (onoff: boolean) => void
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -37,7 +37,6 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const UploadControll: React.FunctionComponent<UploadControllProps> = props => {
   const repo = useRepository()
-  // const [open, setOpen] = React.useState(false)
   const classes = useStyles()
   /**
    * Handle Uploaded File
@@ -54,11 +53,9 @@ export const UploadControll: React.FunctionComponent<UploadControllProps> = prop
       fileList: e.target.files,
       contentTypeName: 'Image',
     })
-    // handleClick()
 
-    console.log('finished')
     props.uploadsetdata()
-    props.notificationControll()
+    props.notificationControll(true)
   }
 
   return (
