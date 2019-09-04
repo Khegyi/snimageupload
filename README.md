@@ -2,7 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/27d0d4bf-7ccf-4260-82be-defc10590e30/deploy-status)](https://app.netlify.com/sites/snimageupload/deploys)
 
-Boilerplate app for sensenet SPA development with React and Typescript
+Image uploader app for sensenet SPA development with React and Typescript
 
 ## Package content
 
