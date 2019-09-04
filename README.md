@@ -1,6 +1,6 @@
-# sn-react-typescript-boilerplate
+# snimageupload
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/f3d58505-1366-49cc-b6f2-4b2fcc560966/deploy-status)](https://app.netlify.com/sites/sn-react-typescript-boilerplate/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/27d0d4bf-7ccf-4260-82be-defc10590e30/deploy-status)](https://app.netlify.com/sites/snimageupload/deploys)
 
 Boilerplate app for sensenet SPA development with React and Typescript
 
@@ -18,7 +18,7 @@ Be sure that you have installed a GIT client, Node.JS (latest or LTS). You can u
 
 ### Using as a template
 
-1. Create a GIT repository with [this template](https://github.com/SenseNet/sn-react-typescript-boilerplate/generate)
+1. Create a GIT repository with [this template](https://github.com/sn-panda/snimageupload)
 1. Clone your repository with `git clone <enter-your-git-repo-url-here>`
 1. cd into the cloned directory
 1. Install the package dependencies with `npm install` or `yarn install`
