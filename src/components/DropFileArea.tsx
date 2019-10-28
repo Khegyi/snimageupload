@@ -6,8 +6,8 @@ export const DropFileArea: React.FunctionComponent<{
   uploadPath: string
   style?: React.CSSProperties
   uploadsetdata: () => void
-  notificationControll: (onoff: boolean) => void
-  setDragOver: (onoff: boolean) => void
+  notificationControll: (isOpen: boolean) => void
+  setDragOver: (isOver: boolean) => void
   isDragOver: boolean
 }> = props => {
   const repo = useRepository()

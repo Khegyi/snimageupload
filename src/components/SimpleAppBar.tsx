@@ -5,7 +5,7 @@ import { UploadControll } from './UploadControll'
 
 interface SimpleAppBarProps {
   uploadsetdata: () => void
-  notificationControll: (onoff: boolean) => void
+  notificationControll: (isOpen: boolean) => void
 }
 
 const useStyles = makeStyles((theme: Theme) =>

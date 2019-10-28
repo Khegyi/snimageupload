@@ -42,15 +42,17 @@ export const UploadControll: React.FunctionComponent<UploadControllProps> = prop
    * Handle Uploaded File
    * @param e any
    */
-  async function pickFile(e: any) {
+  async function pickFile(e: React.ChangeEvent<HTMLInputElement>) {
     const { files } = e.target
     console.log(files)
-    await repo.upload.fromFileList({
+    if (!e.target.files) {
+      return
+    }
+    await repo.upload.file({
       binaryPropertyName: 'Binary',
       overwrite: true,
-      createFolders: true,
       parentPath: `${ConstantContent.PORTAL_ROOT.Path}/Content/IT/ImageLibrary`,
-      fileList: e.target.files,
+      file: e.target.files[0],
       contentTypeName: 'Image',
     })
 

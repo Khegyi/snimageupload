@@ -12,7 +12,7 @@ import { DropFileArea } from './DropFileArea'
 interface AdvancedGridprops {
   imgList: Image[]
   uploadsetdata: () => void
-  notificationControll: (onoff: boolean) => void
+  notificationControll: (IsOpen: boolean) => void
 }
 
 export const useStyles = makeStyles(theme => ({
@@ -58,10 +58,10 @@ export const AdvancedGridList: React.FunctionComponent<AdvancedGridprops> = prop
   }
   /**
    * Sets the isDragOver state true or false
-   * @param {boolean} onoff Seletected number's index.
+   * @param {boolean} isOpen Seletected number's index.
    */
-  function DragSetter(onoff: boolean) {
-    setDragOver(onoff)
+  function DragSetter(isOpen: boolean) {
+    setDragOver(isOpen)
   }
   return (
     <div className={classes.root}>

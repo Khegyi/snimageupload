@@ -12,10 +12,6 @@ Boilerplate app for sensenet SPA development with React and Typescript
 - prettier and eslint 💅
 - husky lint & prettier precommit hook ⚓
 
-## Getting started
-
-Be sure that you have installed a GIT client, Node.JS (latest or LTS). You can use NPM or Yarn.
-
 ### Using as a template
 
 1. Create a GIT repository with [this template](https://github.com/SenseNet/sn-react-typescript-boilerplate/generate)
