@@ -1,25 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { ConstantContent } from '@sensenet/client-core'
-import { Image, User } from '@sensenet/default-content-types'
-import { CssBaseline } from '@material-ui/core'
+import { Image } from '@sensenet/default-content-types'
+import { CssBaseline, IconButton, Snackbar } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import moment from 'moment'
+import CloseIcon from '@material-ui/icons/Close'
 import snLogo from './assets/sensenet_logo_transparent.png'
 import { useRepository } from './hooks/use-repository'
 import { AdvancedGridList } from './components/AdvancedGridList'
 import { SimpleAppBar } from './components/SimpleAppBar'
 
-interface SelectedImage {
-  imgIndex: number
-  imgPath: string
-  imgTitle: string
-  imgDescription: string
-  imgAuthor: string
-  imgAuthorAvatar: string
-  imgCreationDate: string
-  imgSize: string
-  imgDownloadUrl: string
-}
 export const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
@@ -32,6 +21,9 @@ export const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     padding: theme.spacing(3),
   },
+  close: {
+    padding: theme.spacing(0.5),
+  },
 }))
 /**
  * The main entry point of your app. You can start h@cking from here ;)
@@ -39,51 +31,31 @@ export const useStyles = makeStyles(theme => ({
 export const App: React.FunctionComponent = () => {
   const repo = useRepository()
   const [data, setData] = useState<Image[]>([])
-  const [uploaddata, setUploaddata] = useState<boolean>(false)
-  const [selectedimage, setSelectedimage] = React.useState<SelectedImage>({
-    imgIndex: 0,
-    imgPath: '',
-    imgTitle: '',
-    imgDescription: '',
-    imgAuthor: '',
-    imgAuthorAvatar: '',
-    imgCreationDate: '',
-    imgSize: '',
-    imgDownloadUrl: '',
-  })
+  const classes = useStyles()
+  const [isNotificationShown, ShowNotification] = React.useState<boolean>(false)
+  const [uploaddata, setUploaddata] = React.useState<boolean>(false)
+
+  /** Display the notificationbar about successful upload
+   * @param {boolean} switcher Should the notification shown or not
+   */
+  function DisplayNotification(switcher: boolean) {
+    ShowNotification(switcher)
+  }
+  /**
+   * Hide the notificationbar
+   */
+  function CloseNotfication() {
+    ShowNotification(false)
+  }
   /**
    * Sets the UploadData
+   * Determinate whatever an upload has accord or not
    */
   function setUploaddataFunction() {
     setUploaddata(true)
   }
   /**
-   * Sets the Selected Image
-   * @param {number} imageIndex Seletected number's index.
-   */
-  function getSelectedImage(imageIndex: number) {
-    const selectedImage = data[imageIndex]
-    const avatarUser = selectedImage.CreatedBy as User
-    const avatarUserAvatarUrl = avatarUser.Avatar ? avatarUser.Avatar.Url : ''
-
-    setSelectedimage({
-      imgIndex: imageIndex,
-      imgPath: repo.configuration.repositoryUrl + selectedImage.Path,
-      imgTitle: selectedImage.DisplayName ? selectedImage.DisplayName : '',
-      imgDescription: selectedImage.Description ? selectedImage.Description : '',
-      imgAuthor: selectedImage.CreatedBy ? ((selectedImage.CreatedBy as User).FullName as string) : '',
-      imgAuthorAvatar: avatarUserAvatarUrl as string,
-      imgCreationDate: moment(new Date(selectedImage.CreationDate ? selectedImage.CreationDate : '')).format(
-        'YYYY-MM-DD HH:mm:ss',
-      ),
-      imgSize: `${(selectedImage.Size ? selectedImage.Size / 1024 / 1024 : 0).toFixed(2)} MB`,
-      imgDownloadUrl: selectedImage.Binary
-        ? repo.configuration.repositoryUrl + selectedImage.Binary.__mediaresource.media_src
-        : '',
-    })
-  }
-  /**
-   *  Close the Details View.
+   * Fetches the images from the repository.
    */
   async function loadImages(): Promise<void> {
     const result = await repo.loadCollection<Image>({
@@ -105,28 +77,17 @@ export const App: React.FunctionComponent = () => {
     })
     setData(result.d.results)
   }
-  /**
-   *  Close the Details View.
-   */
   useEffect(() => {
-    /**
-     * Fetches the images from the repository.
-     */
-    console.log(uploaddata)
     if (uploaddata) {
       loadImages()
       setUploaddata(false)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [uploaddata])
 
-  /**
-   *  Close the Details View.
-   */
   useEffect(() => {
-    /**
-     * Fetches the images from the repository.
-     */
     loadImages()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [repo])
   return (
     <div
@@ -141,9 +102,36 @@ export const App: React.FunctionComponent = () => {
         backgroundImage: `url(${snLogo})`,
         backgroundSize: 'auto',
       }}>
+      <Snackbar
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'right',
+        }}
+        open={isNotificationShown}
+        autoHideDuration={6000}
+        onClose={CloseNotfication}
+        ContentProps={{
+          'aria-describedby': 'message-id',
+        }}
+        message={<span id="message-id">Successful Upload</span>}
+        action={[
+          <IconButton
+            key="close"
+            aria-label="close"
+            color="inherit"
+            className={classes.close}
+            onClick={CloseNotfication}>
+            <CloseIcon />
+          </IconButton>,
+        ]}
+      />
       <CssBaseline />
-      <SimpleAppBar uploadsetdata={setUploaddataFunction} />
-      <AdvancedGridList openFunction={getSelectedImage} imgList={data} />
+      <SimpleAppBar uploadsetdata={setUploaddataFunction} notificationControll={DisplayNotification} />
+      <AdvancedGridList
+        imgList={data}
+        uploadsetdata={setUploaddataFunction}
+        notificationControll={DisplayNotification}
+      />
     </div>
   )
 }
