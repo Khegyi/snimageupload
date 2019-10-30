@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import GridListTile from '@material-ui/core/GridListTile'
 import GridListTileBar from '@material-ui/core/GridListTileBar'
 import { ConstantContent } from '@sensenet/client-core'
-import { useRepository } from '../hooks/use-repository'
+import { useRepository } from '@sensenet/hooks-react'
 import { DropFileArea } from './DropFileArea'
 
 interface AdvancedGridprops {
