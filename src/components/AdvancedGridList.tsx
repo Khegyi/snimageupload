@@ -8,7 +8,6 @@ import GridListTileBar from '@material-ui/core/GridListTileBar'
 import { useRepository } from '../hooks/use-repository'
 
 interface AdvancedGridprops {
-  openFunction: (imageIndex: number, openInfoTab: boolean) => void
   imgList: Image[]
 }
 
@@ -36,23 +35,23 @@ export const useStyles = makeStyles(theme => ({
     background: 'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
   },
 }))
-
+/**
+ * Determines which image should be full width
+ * @param {number} anumber Seletected number's index.
+ * @returns {int} 2 for full width, 1 for half size.
+ */
+export function pickTile(anumber: number) {
+  let tilenumber = anumber % 3
+  tilenumber = tilenumber === 0 ? 2 : 1
+  return tilenumber
+}
 /**
  * Display Images from repository
  */
 export const AdvancedGridList: React.FunctionComponent<AdvancedGridprops> = props => {
   const classes = useStyles()
   const repo = useRepository()
-  /**
-   * Determines which image should be full width
-   * @param {number} anumber Seletected number's index.
-   * @returns {int} 2 for full width, 1 for half size.
-   */
-  function pickTile(anumber: number) {
-    let tilenumber = anumber % 3
-    tilenumber = tilenumber === 0 ? 2 : 1
-    return tilenumber
-  }
+
   return (
     <div className={classes.root}>
       <GridList cellHeight={200} spacing={1} className={classes.gridList}>
@@ -61,7 +60,6 @@ export const AdvancedGridList: React.FunctionComponent<AdvancedGridprops> = prop
             <img
               className={classes.imgTile}
               src={repo.configuration.repositoryUrl + tile.Path}
-              onClick={() => props.openFunction(index, true)}
               alt={tile.Description}
             />
             <GridListTileBar

@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UploadControll Matches snapshot 1`] = `
+<div>
+  <WithStyles(ForwardRef(Snackbar))
+    ContentProps={
+      Object {
+        "aria-describedby": "message-id",
+      }
+    }
+    action={
+      Array [
+        <ForwardRef(WithStyles)
+          aria-label="close"
+          className="makeStyles-close-6"
+          color="inherit"
+          onClick={[Function]}
+        >
+          <Memo />
+        </ForwardRef(WithStyles)>,
+      ]
+    }
+    anchorOrigin={
+      Object {
+        "horizontal": "right",
+        "vertical": "bottom",
+      }
+    }
+    autoHideDuration={6000}
+    message={
+      <span
+        id="message-id"
+      >
+        Successful Upload
+      </span>
+    }
+    onClose={[Function]}
+    open={false}
+  />
+  <input
+    accept="image/*"
+    className="makeStyles-input-2"
+    id="contained-button-file"
+    multiple={true}
+    onChange={[Function]}
+    type="file"
+  />
+  <label
+    htmlFor="contained-button-file"
+  >
+    <WithStyles(ForwardRef(Fab))
+      className="makeStyles-button-3"
+      component="span"
+      title="Upload"
+      variant="extended"
+    >
+      <CloudUploadIcon />
+    </WithStyles(ForwardRef(Fab))>
+  </label>
+</div>
+`;

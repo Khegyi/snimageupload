@@ -1,9 +1,8 @@
 import React from 'react'
 import CloudUpload from '@material-ui/icons/CloudUpload'
 import { ConstantContent } from '@sensenet/client-core'
-import { Button, Fab, IconButton } from '@material-ui/core'
+import { Fab, IconButton } from '@material-ui/core'
 import CloseIcon from '@material-ui/icons/Close'
-import { amber, green } from '@material-ui/core/colors'
 import Snackbar from '@material-ui/core/Snackbar'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import { useRepository } from '../hooks/use-repository'
@@ -11,7 +10,6 @@ import { useRepository } from '../hooks/use-repository'
 interface UploadControllProps {
   uploadsetdata: () => void
 }
-
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -41,35 +39,30 @@ const useStyles = makeStyles((theme: Theme) =>
 )
 
 export const UploadControll: React.FunctionComponent<UploadControllProps> = props => {
-  const repo = useRepository()
   const [open, setOpen] = React.useState(false)
+  const repo = useRepository()
   const classes = useStyles()
   /**
-   * Handle Uploaded File
-   * @param e any
+   * Opens the Snackbar for succesfull upload
    */
   function handleClick() {
     setOpen(true)
   }
   /**
-   * Handle Uploaded File
+   * Closes the Snackbar
    * @param e any
    */
-  function handleClose(event: React.SyntheticEvent | React.MouseEvent, reason?: string) {
+  function handleClose(_event: React.SyntheticEvent | React.MouseEvent, reason?: string) {
     if (reason === 'clickaway') {
       return
     }
-
     setOpen(false)
   }
-
   /**
    * Handle Uploaded File
    * @param e any
    */
   async function pickFile(e: any) {
-    const { files } = e.target
-    console.log(files)
     await repo.upload.fromFileList({
       binaryPropertyName: 'Binary',
       overwrite: true,
@@ -79,7 +72,6 @@ export const UploadControll: React.FunctionComponent<UploadControllProps> = prop
       contentTypeName: 'Image',
     })
     handleClick()
-    console.log('finished')
     props.uploadsetdata()
   }
 
