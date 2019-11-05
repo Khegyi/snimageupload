@@ -20,6 +20,9 @@ export const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     padding: theme.spacing(3),
   },
+  close: {
+    padding: theme.spacing(0.5),
+  },
 }))
 
 /**
@@ -29,9 +32,8 @@ export const App: React.FunctionComponent = () => {
   const repo = useRepository()
   const [data, setData] = useState<Image[]>([])
   const [reloadToken, setReloadToken] = useState(1)
-
   /**
-   * Sets the UploadData
+   * Hide the notificationbar
    */
   function setUploaddataFunction() {
     setReloadToken(Math.random())
@@ -63,7 +65,6 @@ export const App: React.FunctionComponent = () => {
     }
     loadImages()
   }, [repo, reloadToken])
-
   return (
     <div
       style={{
@@ -77,6 +78,29 @@ export const App: React.FunctionComponent = () => {
         backgroundImage: `url(${snLogo})`,
         backgroundSize: 'auto',
       }}>
+      <Snackbar
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'right',
+        }}
+        open={isNotificationShown}
+        autoHideDuration={6000}
+        onClose={CloseNotfication}
+        ContentProps={{
+          'aria-describedby': 'message-id',
+        }}
+        message={<span id="message-id">Successful Upload</span>}
+        action={[
+          <IconButton
+            key="close"
+            aria-label="close"
+            color="inherit"
+            className={classes.close}
+            onClick={CloseNotfication}>
+            <CloseIcon />
+          </IconButton>,
+        ]}
+      />
       <CssBaseline />
       <SimpleAppBar uploadsetdata={setUploaddataFunction} />
       <AdvancedGridList imgList={data} />

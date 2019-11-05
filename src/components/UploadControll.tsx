@@ -9,6 +9,7 @@ import { useRepository } from '../hooks/use-repository'
 
 interface UploadControllProps {
   uploadsetdata: () => void
+  notificationControll: (onoff: boolean) => void
 }
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -31,9 +32,6 @@ const useStyles = makeStyles((theme: Theme) =>
     appBar: {
       width: '100%',
       marginRight: '0',
-    },
-    close: {
-      padding: theme.spacing(0.5),
     },
   }),
 )
@@ -66,35 +64,17 @@ export const UploadControll: React.FunctionComponent<UploadControllProps> = prop
     await repo.upload.fromFileList({
       binaryPropertyName: 'Binary',
       overwrite: true,
-      createFolders: true,
       parentPath: `${ConstantContent.PORTAL_ROOT.Path}/Content/IT/ImageLibrary`,
-      fileList: e.target.files,
+      file: e.target.files[0],
       contentTypeName: 'Image',
     })
     handleClick()
     props.uploadsetdata()
+    props.notificationControll(true)
   }
 
   return (
     <div>
-      <Snackbar
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'right',
-        }}
-        open={open}
-        autoHideDuration={6000}
-        onClose={handleClose}
-        ContentProps={{
-          'aria-describedby': 'message-id',
-        }}
-        message={<span id="message-id">Successful Upload</span>}
-        action={[
-          <IconButton key="close" aria-label="close" color="inherit" className={classes.close} onClick={handleClose}>
-            <CloseIcon />
-          </IconButton>,
-        ]}
-      />
       <input
         accept="image/*"
         onChange={e => pickFile(e)}

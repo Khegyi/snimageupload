@@ -4,6 +4,7 @@ import { AppBar, Toolbar, Typography } from '@material-ui/core'
 import { UploadControll } from './UploadControll'
 interface SimpleAppBarProps {
   uploadsetdata: () => void
+  notificationControll: (isOpen: boolean) => void
 }
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -40,7 +41,6 @@ export const SimpleAppBar: React.FunctionComponent<SimpleAppBarProps> = props =>
           <Typography variant="h6" className={classes.title}>
             Photos
           </Typography>
-
           <UploadControll uploadsetdata={props.uploadsetdata} />
         </Toolbar>
       </AppBar>

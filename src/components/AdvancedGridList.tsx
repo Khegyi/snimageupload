@@ -1,32 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Image, User } from '@sensenet/default-content-types'
 import { IconButton } from '@material-ui/core'
 import GridList from '@material-ui/core/GridList'
 import { makeStyles } from '@material-ui/core/styles'
 import GridListTile from '@material-ui/core/GridListTile'
 import GridListTileBar from '@material-ui/core/GridListTileBar'
+import { ConstantContent } from '@sensenet/client-core'
 import { useRepository } from '../hooks/use-repository'
+import { DropFileArea } from './DropFileArea'
 
 interface AdvancedGridprops {
   imgList: Image[]
+  uploadsetdata: () => void
+  notificationControll: (IsOpen: boolean) => void
 }
 
 export const useStyles = makeStyles(theme => ({
   root: {
-    display: 'flex',
-    flexWrap: 'wrap',
+    width: '75%',
     justifyContent: 'space-around',
     overflow: 'visible',
     backgroundColor: theme.palette.background.paper,
     marginTop: '100px',
   },
   gridList: {
-    width: '75%',
     height: 'auto',
     transform: 'translateZ(0)',
   },
   imgTile: {
-    cursor: 'pointer',
+    cursor: 'default',
   },
   icon: {
     color: 'white',
@@ -49,6 +51,7 @@ export function pickTile(anumber: number) {
  * Display Images from repository
  */
 export const AdvancedGridList: React.FunctionComponent<AdvancedGridprops> = props => {
+  const [isDragOver, setDragOver] = useState(false)
   const classes = useStyles()
   const repo = useRepository()
 
