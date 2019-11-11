@@ -41,7 +41,7 @@ export const SimpleAppBar: React.FunctionComponent<SimpleAppBarProps> = props =>
           <Typography variant="h6" className={classes.title}>
             Photos
           </Typography>
-          <UploadControll uploadsetdata={props.uploadsetdata} />
+          <UploadControll uploadsetdata={props.uploadsetdata} notificationControll={props.notificationControll} />
         </Toolbar>
       </AppBar>
     </div>

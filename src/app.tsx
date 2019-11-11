@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { ConstantContent } from '@sensenet/client-core'
 import { Image } from '@sensenet/default-content-types'
-import { CssBaseline } from '@material-ui/core'
+import { CssBaseline, IconButton, Snackbar } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import CloseIcon from '@material-ui/icons/Close'
 import snLogo from './assets/sensenet_logo_transparent.png'
 import { useRepository } from './hooks/use-repository'
 import { AdvancedGridList } from './components/AdvancedGridList'
@@ -31,7 +32,21 @@ export const useStyles = makeStyles(theme => ({
 export const App: React.FunctionComponent = () => {
   const repo = useRepository()
   const [data, setData] = useState<Image[]>([])
+  const classes = useStyles()
+  const [isNotificationShown, ShowNotification] = React.useState<boolean>(false)
   const [reloadToken, setReloadToken] = useState(1)
+  /** Display the notificationbar about successful upload
+   * @param {boolean} switcher Should the notification shown or not
+   */
+  function DisplayNotification(switcher: boolean) {
+    ShowNotification(switcher)
+  }
+  /**
+   * Hide the notificationbar
+   */
+  function CloseNotfication() {
+    ShowNotification(false)
+  }
   /**
    * Hide the notificationbar
    */
@@ -102,8 +117,12 @@ export const App: React.FunctionComponent = () => {
         ]}
       />
       <CssBaseline />
-      <SimpleAppBar uploadsetdata={setUploaddataFunction} />
-      <AdvancedGridList imgList={data} />
+      <SimpleAppBar uploadsetdata={setUploaddataFunction} notificationControll={DisplayNotification} />
+      <AdvancedGridList
+        imgList={data}
+        uploadsetdata={setUploaddataFunction}
+        notificationControll={DisplayNotification}
+      />
     </div>
   )
 }

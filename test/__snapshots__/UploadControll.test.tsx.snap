@@ -2,41 +2,6 @@
 
 exports[`UploadControll Matches snapshot 1`] = `
 <div>
-  <WithStyles(ForwardRef(Snackbar))
-    ContentProps={
-      Object {
-        "aria-describedby": "message-id",
-      }
-    }
-    action={
-      Array [
-        <ForwardRef(WithStyles)
-          aria-label="close"
-          className="makeStyles-close-6"
-          color="inherit"
-          onClick={[Function]}
-        >
-          <Memo />
-        </ForwardRef(WithStyles)>,
-      ]
-    }
-    anchorOrigin={
-      Object {
-        "horizontal": "right",
-        "vertical": "bottom",
-      }
-    }
-    autoHideDuration={6000}
-    message={
-      <span
-        id="message-id"
-      >
-        Successful Upload
-      </span>
-    }
-    onClose={[Function]}
-    open={false}
-  />
   <input
     accept="image/*"
     className="makeStyles-input-2"

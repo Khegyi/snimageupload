@@ -1,16 +1,15 @@
 import React from 'react'
 import CloudUpload from '@material-ui/icons/CloudUpload'
 import { ConstantContent } from '@sensenet/client-core'
-import { Fab, IconButton } from '@material-ui/core'
-import CloseIcon from '@material-ui/icons/Close'
-import Snackbar from '@material-ui/core/Snackbar'
+import { Fab } from '@material-ui/core'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import { useRepository } from '../hooks/use-repository'
 
 interface UploadControllProps {
   uploadsetdata: () => void
-  notificationControll: (onoff: boolean) => void
+  notificationControll: (isOpen: boolean) => void
 }
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -33,29 +32,15 @@ const useStyles = makeStyles((theme: Theme) =>
       width: '100%',
       marginRight: '0',
     },
+    close: {
+      padding: theme.spacing(0.5),
+    },
   }),
 )
 
 export const UploadControll: React.FunctionComponent<UploadControllProps> = props => {
-  const [open, setOpen] = React.useState(false)
   const repo = useRepository()
   const classes = useStyles()
-  /**
-   * Opens the Snackbar for succesfull upload
-   */
-  function handleClick() {
-    setOpen(true)
-  }
-  /**
-   * Closes the Snackbar
-   * @param e any
-   */
-  function handleClose(_event: React.SyntheticEvent | React.MouseEvent, reason?: string) {
-    if (reason === 'clickaway') {
-      return
-    }
-    setOpen(false)
-  }
   /**
    * Handle Uploaded File
    * @param e any
@@ -64,13 +49,13 @@ export const UploadControll: React.FunctionComponent<UploadControllProps> = prop
     await repo.upload.fromFileList({
       binaryPropertyName: 'Binary',
       overwrite: true,
+      createFolders: true,
       parentPath: `${ConstantContent.PORTAL_ROOT.Path}/Content/IT/ImageLibrary`,
-      file: e.target.files[0],
+      fileList: e.target.files,
       contentTypeName: 'Image',
     })
-    handleClick()
-    props.uploadsetdata()
     props.notificationControll(true)
+    props.uploadsetdata()
   }
 
   return (

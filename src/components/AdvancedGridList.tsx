@@ -54,28 +54,42 @@ export const AdvancedGridList: React.FunctionComponent<AdvancedGridprops> = prop
   const [isDragOver, setDragOver] = useState(false)
   const classes = useStyles()
   const repo = useRepository()
+  /**
+   * Sets the isDragOver state true or false
+   * @param {boolean} isOpen Seletected number's index.
+   */
+  function DragSetter(isOpen: boolean) {
+    setDragOver(isOpen)
+  }
 
   return (
     <div className={classes.root}>
-      <GridList cellHeight={200} spacing={1} className={classes.gridList}>
-        {props.imgList.map((tile, index) => (
-          <GridListTile key={tile.Id} cols={pickTile(index)} rows={pickTile(index)}>
-            <img
-              className={classes.imgTile}
-              src={repo.configuration.repositoryUrl + tile.Path}
-              alt={tile.Description}
-            />
-            <GridListTileBar
-              title={tile.DisplayName}
-              titlePosition="bottom"
-              subtitle={<span>by: {(tile.CreatedBy as User).FullName}</span>}
-              actionIcon={<IconButton aria-label={`star ${tile.DisplayName}`} className={classes.icon}></IconButton>}
-              actionPosition="left"
-              className={classes.titleBar}
-            />
-          </GridListTile>
-        ))}
-      </GridList>
+      <DropFileArea
+        uploadPath={`${ConstantContent.PORTAL_ROOT.Path}/Content/IT/ImageLibrary`}
+        uploadsetdata={props.uploadsetdata}
+        notificationControll={props.notificationControll}
+        setDragOver={DragSetter}
+        isDragOver={isDragOver}>
+        <GridList cellHeight={200} spacing={1} style={{ opacity: isDragOver ? 0.5 : 1 }} className={classes.gridList}>
+          {props.imgList.map((tile, index) => (
+            <GridListTile key={tile.Id} cols={pickTile(index)} rows={pickTile(index)}>
+              <img
+                className={classes.imgTile}
+                src={repo.configuration.repositoryUrl + tile.Path}
+                alt={tile.Description}
+              />
+              <GridListTileBar
+                title={tile.DisplayName}
+                titlePosition="bottom"
+                subtitle={<span>by: {(tile.CreatedBy as User).FullName}</span>}
+                actionIcon={<IconButton aria-label={`star ${tile.DisplayName}`} className={classes.icon}></IconButton>}
+                actionPosition="left"
+                className={classes.titleBar}
+              />
+            </GridListTile>
+          ))}
+        </GridList>
+      </DropFileArea>
     </div>
   )
 }

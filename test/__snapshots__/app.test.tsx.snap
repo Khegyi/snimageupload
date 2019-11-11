@@ -16,12 +16,50 @@ exports[`App Layout Matches snapshot 1`] = `
     }
   }
 >
+  <WithStyles(ForwardRef(Snackbar))
+    ContentProps={
+      Object {
+        "aria-describedby": "message-id",
+      }
+    }
+    action={
+      Array [
+        <ForwardRef(WithStyles)
+          aria-label="close"
+          className="makeStyles-close-3"
+          color="inherit"
+          onClick={[Function]}
+        >
+          <Memo />
+        </ForwardRef(WithStyles)>,
+      ]
+    }
+    anchorOrigin={
+      Object {
+        "horizontal": "right",
+        "vertical": "bottom",
+      }
+    }
+    autoHideDuration={6000}
+    message={
+      <span
+        id="message-id"
+      >
+        Successful Upload
+      </span>
+    }
+    onClose={[Function]}
+    open={false}
+  />
   <CssBaseline />
   <Component
+    notificationControll={[Function]}
     uploadsetdata={[Function]}
   />
   <Component
     imgList={Array []}
+    notificationControll={[Function]}
+    uploadsetdata={[Function]}
   />
 </div>
 `;
@@ -43,18 +81,101 @@ exports[`App Layout getselectedImage with result 1`] = `
       }
     }
   >
+    <WithStyles(ForwardRef(Snackbar))
+      ContentProps={
+        Object {
+          "aria-describedby": "message-id",
+        }
+      }
+      action={
+        Array [
+          <ForwardRef(WithStyles)
+            aria-label="close"
+            className="makeStyles-close-3"
+            color="inherit"
+            onClick={[Function]}
+          >
+            <Memo />
+          </ForwardRef(WithStyles)>,
+        ]
+      }
+      anchorOrigin={
+        Object {
+          "horizontal": "right",
+          "vertical": "bottom",
+        }
+      }
+      autoHideDuration={6000}
+      message={
+        <span
+          id="message-id"
+        >
+          Successful Upload
+        </span>
+      }
+      onClose={[Function]}
+      open={false}
+    >
+      <ForwardRef(Snackbar)
+        ContentProps={
+          Object {
+            "aria-describedby": "message-id",
+          }
+        }
+        action={
+          Array [
+            <ForwardRef(WithStyles)
+              aria-label="close"
+              className="makeStyles-close-3"
+              color="inherit"
+              onClick={[Function]}
+            >
+              <Memo />
+            </ForwardRef(WithStyles)>,
+          ]
+        }
+        anchorOrigin={
+          Object {
+            "horizontal": "right",
+            "vertical": "bottom",
+          }
+        }
+        autoHideDuration={6000}
+        classes={
+          Object {
+            "anchorOriginBottomCenter": "MuiSnackbar-anchorOriginBottomCenter",
+            "anchorOriginBottomLeft": "MuiSnackbar-anchorOriginBottomLeft",
+            "anchorOriginBottomRight": "MuiSnackbar-anchorOriginBottomRight",
+            "anchorOriginTopCenter": "MuiSnackbar-anchorOriginTopCenter",
+            "anchorOriginTopLeft": "MuiSnackbar-anchorOriginTopLeft",
+            "anchorOriginTopRight": "MuiSnackbar-anchorOriginTopRight",
+            "root": "MuiSnackbar-root",
+          }
+        }
+        message={
+          <span
+            id="message-id"
+          >
+            Successful Upload
+          </span>
+        }
+        onClose={[Function]}
+        open={false}
+      />
+    </WithStyles(ForwardRef(Snackbar))>
     <CssBaseline />
     <Component
+      notificationControll={[Function]}
       uploadsetdata={[Function]}
     >
       <div
-        className="makeStyles-root-1"
+        className="makeStyles-root-11"
       >
         <WithStyles(ForwardRef(AppBar))
-          className="makeStyles-appBar-4"
+          className="makeStyles-appBar-14"
         >
           <ForwardRef(AppBar)
-            className="makeStyles-appBar-4"
+            className="makeStyles-appBar-14"
             classes={
               Object {
                 "colorDefault": "MuiAppBar-colorDefault",
@@ -70,13 +191,13 @@ exports[`App Layout getselectedImage with result 1`] = `
             }
           >
             <WithStyles(ForwardRef(Paper))
-              className="MuiAppBar-root MuiAppBar-positionFixed makeStyles-appBar-4 MuiAppBar-colorPrimary mui-fixed"
+              className="MuiAppBar-root MuiAppBar-positionFixed makeStyles-appBar-14 MuiAppBar-colorPrimary mui-fixed"
               component="header"
               elevation={4}
               square={true}
             >
               <ForwardRef(Paper)
-                className="MuiAppBar-root MuiAppBar-positionFixed makeStyles-appBar-4 MuiAppBar-colorPrimary mui-fixed"
+                className="MuiAppBar-root MuiAppBar-positionFixed makeStyles-appBar-14 MuiAppBar-colorPrimary mui-fixed"
                 classes={
                   Object {
                     "elevation0": "MuiPaper-elevation0",
@@ -113,7 +234,7 @@ exports[`App Layout getselectedImage with result 1`] = `
                 square={true}
               >
                 <header
-                  className="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-appBar-4 MuiAppBar-colorPrimary mui-fixed"
+                  className="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-appBar-14 MuiAppBar-colorPrimary mui-fixed"
                 >
                   <WithStyles(ForwardRef(Toolbar))>
                     <ForwardRef(Toolbar)
@@ -130,11 +251,11 @@ exports[`App Layout getselectedImage with result 1`] = `
                         className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
                       >
                         <WithStyles(ForwardRef(Typography))
-                          className="makeStyles-title-3"
+                          className="makeStyles-title-13"
                           variant="h6"
                         >
                           <ForwardRef(Typography)
-                            className="makeStyles-title-3"
+                            className="makeStyles-title-13"
                             classes={
                               Object {
                                 "alignCenter": "MuiTypography-alignCenter",
@@ -438,101 +559,20 @@ exports[`App Layout getselectedImage with result 1`] = `
                             variant="h6"
                           >
                             <h6
-                              className="MuiTypography-root makeStyles-title-3 MuiTypography-h6"
+                              className="MuiTypography-root makeStyles-title-13 MuiTypography-h6"
                             >
                               Photos
                             </h6>
                           </ForwardRef(Typography)>
                         </WithStyles(ForwardRef(Typography))>
                         <Component
+                          notificationControll={[Function]}
                           uploadsetdata={[Function]}
                         >
                           <div>
-                            <WithStyles(ForwardRef(Snackbar))
-                              ContentProps={
-                                Object {
-                                  "aria-describedby": "message-id",
-                                }
-                              }
-                              action={
-                                Array [
-                                  <ForwardRef(WithStyles)
-                                    aria-label="close"
-                                    className="makeStyles-close-80"
-                                    color="inherit"
-                                    onClick={[Function]}
-                                  >
-                                    <Memo />
-                                  </ForwardRef(WithStyles)>,
-                                ]
-                              }
-                              anchorOrigin={
-                                Object {
-                                  "horizontal": "right",
-                                  "vertical": "bottom",
-                                }
-                              }
-                              autoHideDuration={6000}
-                              message={
-                                <span
-                                  id="message-id"
-                                >
-                                  Successful Upload
-                                </span>
-                              }
-                              onClose={[Function]}
-                              open={false}
-                            >
-                              <ForwardRef(Snackbar)
-                                ContentProps={
-                                  Object {
-                                    "aria-describedby": "message-id",
-                                  }
-                                }
-                                action={
-                                  Array [
-                                    <ForwardRef(WithStyles)
-                                      aria-label="close"
-                                      className="makeStyles-close-80"
-                                      color="inherit"
-                                      onClick={[Function]}
-                                    >
-                                      <Memo />
-                                    </ForwardRef(WithStyles)>,
-                                  ]
-                                }
-                                anchorOrigin={
-                                  Object {
-                                    "horizontal": "right",
-                                    "vertical": "bottom",
-                                  }
-                                }
-                                autoHideDuration={6000}
-                                classes={
-                                  Object {
-                                    "anchorOriginBottomCenter": "MuiSnackbar-anchorOriginBottomCenter",
-                                    "anchorOriginBottomLeft": "MuiSnackbar-anchorOriginBottomLeft",
-                                    "anchorOriginBottomRight": "MuiSnackbar-anchorOriginBottomRight",
-                                    "anchorOriginTopCenter": "MuiSnackbar-anchorOriginTopCenter",
-                                    "anchorOriginTopLeft": "MuiSnackbar-anchorOriginTopLeft",
-                                    "anchorOriginTopRight": "MuiSnackbar-anchorOriginTopRight",
-                                    "root": "MuiSnackbar-root",
-                                  }
-                                }
-                                message={
-                                  <span
-                                    id="message-id"
-                                  >
-                                    Successful Upload
-                                  </span>
-                                }
-                                onClose={[Function]}
-                                open={false}
-                              />
-                            </WithStyles(ForwardRef(Snackbar))>
                             <input
                               accept="image/*"
-                              className="makeStyles-input-76"
+                              className="makeStyles-input-86"
                               id="contained-button-file"
                               multiple={true}
                               onChange={[Function]}
@@ -542,13 +582,13 @@ exports[`App Layout getselectedImage with result 1`] = `
                               htmlFor="contained-button-file"
                             >
                               <WithStyles(ForwardRef(Fab))
-                                className="makeStyles-button-77"
+                                className="makeStyles-button-87"
                                 component="span"
                                 title="Upload"
                                 variant="extended"
                               >
                                 <ForwardRef(Fab)
-                                  className="makeStyles-button-77"
+                                  className="makeStyles-button-87"
                                   classes={
                                     Object {
                                       "colorInherit": "MuiFab-colorInherit",
@@ -568,7 +608,7 @@ exports[`App Layout getselectedImage with result 1`] = `
                                   variant="extended"
                                 >
                                   <WithStyles(ForwardRef(ButtonBase))
-                                    className="MuiFab-root makeStyles-button-77 MuiFab-extended"
+                                    className="MuiFab-root makeStyles-button-87 MuiFab-extended"
                                     component="span"
                                     disabled={false}
                                     focusRipple={true}
@@ -576,7 +616,7 @@ exports[`App Layout getselectedImage with result 1`] = `
                                     title="Upload"
                                   >
                                     <ForwardRef(ButtonBase)
-                                      className="MuiFab-root makeStyles-button-77 MuiFab-extended"
+                                      className="MuiFab-root makeStyles-button-87 MuiFab-extended"
                                       classes={
                                         Object {
                                           "disabled": "Mui-disabled",
@@ -592,7 +632,7 @@ exports[`App Layout getselectedImage with result 1`] = `
                                     >
                                       <span
                                         aria-disabled={false}
-                                        className="MuiButtonBase-root MuiFab-root makeStyles-button-77 MuiFab-extended"
+                                        className="MuiButtonBase-root MuiFab-root makeStyles-button-87 MuiFab-extended"
                                         onBlur={[Function]}
                                         onDragLeave={[Function]}
                                         onFocus={[Function]}
@@ -664,35 +704,159 @@ exports[`App Layout getselectedImage with result 1`] = `
     </Component>
     <Component
       imgList={Array []}
+      notificationControll={[Function]}
+      uploadsetdata={[Function]}
     >
       <div
-        className="makeStyles-root-110"
+        className="makeStyles-root-113"
       >
-        <WithStyles(ForwardRef(GridList))
-          cellHeight={200}
-          className="makeStyles-gridList-111"
-          spacing={1}
+        <Component
+          isDragOver={false}
+          notificationControll={[Function]}
+          setDragOver={[Function]}
+          uploadPath="/Root/Content/IT/ImageLibrary"
+          uploadsetdata={[Function]}
         >
-          <ForwardRef(GridList)
-            cellHeight={200}
-            className="makeStyles-gridList-111"
-            classes={
+          <div
+            className="dropfilearea"
+            onDragEnter={[Function]}
+            onDragLeave={[Function]}
+            onDragOver={[Function]}
+            onDrop={[Function]}
+            style={
               Object {
-                "root": "MuiGridList-root",
+                "display": "inline-block",
+                "filter": undefined,
+                "flexWrap": "wrap",
+                "opacity": 1,
+                "transition": "opacity 300ms",
               }
             }
-            spacing={1}
           >
-            <ul
-              className="MuiGridList-root makeStyles-gridList-111"
+            <div
               style={
                 Object {
-                  "margin": -0.5,
+                  "backgroundColor": "transparent",
+                  "height": "auto",
+                  "opacity": 0,
+                  "position": "relative",
+                  "transition": "opacity 300ms",
+                  "width": "auto",
                 }
               }
-            />
-          </ForwardRef(GridList)>
-        </WithStyles(ForwardRef(GridList))>
+            >
+              <ForwardRef
+                style={
+                  Object {
+                    "height": "250px",
+                    "marginTop": "0px",
+                    "position": "absolute",
+                    "width": "100%",
+                  }
+                }
+              >
+                <WithStyles(ForwardRef(SvgIcon))
+                  style={
+                    Object {
+                      "height": "250px",
+                      "marginTop": "0px",
+                      "position": "absolute",
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <ForwardRef(SvgIcon)
+                    classes={
+                      Object {
+                        "colorAction": "MuiSvgIcon-colorAction",
+                        "colorDisabled": "MuiSvgIcon-colorDisabled",
+                        "colorError": "MuiSvgIcon-colorError",
+                        "colorPrimary": "MuiSvgIcon-colorPrimary",
+                        "colorSecondary": "MuiSvgIcon-colorSecondary",
+                        "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                        "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                        "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                        "root": "MuiSvgIcon-root",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": "250px",
+                        "marginTop": "0px",
+                        "position": "absolute",
+                        "width": "100%",
+                      }
+                    }
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="MuiSvgIcon-root"
+                      focusable="false"
+                      role="presentation"
+                      style={
+                        Object {
+                          "height": "250px",
+                          "marginTop": "0px",
+                          "position": "absolute",
+                          "width": "100%",
+                        }
+                      }
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M0 0h24v24H0V0z"
+                        fill="none"
+                      />
+                      <path
+                        d="M19.21 12.04l-1.53-.11-.3-1.5C16.88 7.86 14.62 6 12 6 9.94 6 8.08 7.14 7.12 8.96l-.5.95-1.07.11C3.53 10.24 2 11.95 2 14c0 2.21 1.79 4 4 4h13c1.65 0 3-1.35 3-3 0-1.55-1.22-2.86-2.79-2.96zm-5.76.96v3h-2.91v-3H8l4-4 4 4h-2.55z"
+                        opacity=".3"
+                      />
+                      <path
+                        d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95C8.08 7.14 9.94 6 12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5 1.53.11c1.56.1 2.78 1.41 2.78 2.96 0 1.65-1.35 3-3 3zM8 13h2.55v3h2.9v-3H16l-4-4z"
+                      />
+                    </svg>
+                  </ForwardRef(SvgIcon)>
+                </WithStyles(ForwardRef(SvgIcon))>
+              </ForwardRef>
+            </div>
+            <WithStyles(ForwardRef(GridList))
+              cellHeight={200}
+              className="makeStyles-gridList-114"
+              spacing={1}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+            >
+              <ForwardRef(GridList)
+                cellHeight={200}
+                className="makeStyles-gridList-114"
+                classes={
+                  Object {
+                    "root": "MuiGridList-root",
+                  }
+                }
+                spacing={1}
+                style={
+                  Object {
+                    "opacity": 1,
+                  }
+                }
+              >
+                <ul
+                  className="MuiGridList-root makeStyles-gridList-114"
+                  style={
+                    Object {
+                      "margin": -0.5,
+                      "opacity": 1,
+                    }
+                  }
+                />
+              </ForwardRef(GridList)>
+            </WithStyles(ForwardRef(GridList))>
+          </div>
+        </Component>
       </div>
     </Component>
   </div>
@@ -716,18 +880,101 @@ exports[`App Layout getselectedImage without result 1`] = `
       }
     }
   >
+    <WithStyles(ForwardRef(Snackbar))
+      ContentProps={
+        Object {
+          "aria-describedby": "message-id",
+        }
+      }
+      action={
+        Array [
+          <ForwardRef(WithStyles)
+            aria-label="close"
+            className="makeStyles-close-3"
+            color="inherit"
+            onClick={[Function]}
+          >
+            <Memo />
+          </ForwardRef(WithStyles)>,
+        ]
+      }
+      anchorOrigin={
+        Object {
+          "horizontal": "right",
+          "vertical": "bottom",
+        }
+      }
+      autoHideDuration={6000}
+      message={
+        <span
+          id="message-id"
+        >
+          Successful Upload
+        </span>
+      }
+      onClose={[Function]}
+      open={false}
+    >
+      <ForwardRef(Snackbar)
+        ContentProps={
+          Object {
+            "aria-describedby": "message-id",
+          }
+        }
+        action={
+          Array [
+            <ForwardRef(WithStyles)
+              aria-label="close"
+              className="makeStyles-close-3"
+              color="inherit"
+              onClick={[Function]}
+            >
+              <Memo />
+            </ForwardRef(WithStyles)>,
+          ]
+        }
+        anchorOrigin={
+          Object {
+            "horizontal": "right",
+            "vertical": "bottom",
+          }
+        }
+        autoHideDuration={6000}
+        classes={
+          Object {
+            "anchorOriginBottomCenter": "MuiSnackbar-anchorOriginBottomCenter",
+            "anchorOriginBottomLeft": "MuiSnackbar-anchorOriginBottomLeft",
+            "anchorOriginBottomRight": "MuiSnackbar-anchorOriginBottomRight",
+            "anchorOriginTopCenter": "MuiSnackbar-anchorOriginTopCenter",
+            "anchorOriginTopLeft": "MuiSnackbar-anchorOriginTopLeft",
+            "anchorOriginTopRight": "MuiSnackbar-anchorOriginTopRight",
+            "root": "MuiSnackbar-root",
+          }
+        }
+        message={
+          <span
+            id="message-id"
+          >
+            Successful Upload
+          </span>
+        }
+        onClose={[Function]}
+        open={false}
+      />
+    </WithStyles(ForwardRef(Snackbar))>
     <CssBaseline />
     <Component
+      notificationControll={[Function]}
       uploadsetdata={[Function]}
     >
       <div
-        className="makeStyles-root-1"
+        className="makeStyles-root-11"
       >
         <WithStyles(ForwardRef(AppBar))
-          className="makeStyles-appBar-4"
+          className="makeStyles-appBar-14"
         >
           <ForwardRef(AppBar)
-            className="makeStyles-appBar-4"
+            className="makeStyles-appBar-14"
             classes={
               Object {
                 "colorDefault": "MuiAppBar-colorDefault",
@@ -743,13 +990,13 @@ exports[`App Layout getselectedImage without result 1`] = `
             }
           >
             <WithStyles(ForwardRef(Paper))
-              className="MuiAppBar-root MuiAppBar-positionFixed makeStyles-appBar-4 MuiAppBar-colorPrimary mui-fixed"
+              className="MuiAppBar-root MuiAppBar-positionFixed makeStyles-appBar-14 MuiAppBar-colorPrimary mui-fixed"
               component="header"
               elevation={4}
               square={true}
             >
               <ForwardRef(Paper)
-                className="MuiAppBar-root MuiAppBar-positionFixed makeStyles-appBar-4 MuiAppBar-colorPrimary mui-fixed"
+                className="MuiAppBar-root MuiAppBar-positionFixed makeStyles-appBar-14 MuiAppBar-colorPrimary mui-fixed"
                 classes={
                   Object {
                     "elevation0": "MuiPaper-elevation0",
@@ -786,7 +1033,7 @@ exports[`App Layout getselectedImage without result 1`] = `
                 square={true}
               >
                 <header
-                  className="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-appBar-4 MuiAppBar-colorPrimary mui-fixed"
+                  className="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed makeStyles-appBar-14 MuiAppBar-colorPrimary mui-fixed"
                 >
                   <WithStyles(ForwardRef(Toolbar))>
                     <ForwardRef(Toolbar)
@@ -803,11 +1050,11 @@ exports[`App Layout getselectedImage without result 1`] = `
                         className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
                       >
                         <WithStyles(ForwardRef(Typography))
-                          className="makeStyles-title-3"
+                          className="makeStyles-title-13"
                           variant="h6"
                         >
                           <ForwardRef(Typography)
-                            className="makeStyles-title-3"
+                            className="makeStyles-title-13"
                             classes={
                               Object {
                                 "alignCenter": "MuiTypography-alignCenter",
@@ -1111,101 +1358,20 @@ exports[`App Layout getselectedImage without result 1`] = `
                             variant="h6"
                           >
                             <h6
-                              className="MuiTypography-root makeStyles-title-3 MuiTypography-h6"
+                              className="MuiTypography-root makeStyles-title-13 MuiTypography-h6"
                             >
                               Photos
                             </h6>
                           </ForwardRef(Typography)>
                         </WithStyles(ForwardRef(Typography))>
                         <Component
+                          notificationControll={[Function]}
                           uploadsetdata={[Function]}
                         >
                           <div>
-                            <WithStyles(ForwardRef(Snackbar))
-                              ContentProps={
-                                Object {
-                                  "aria-describedby": "message-id",
-                                }
-                              }
-                              action={
-                                Array [
-                                  <ForwardRef(WithStyles)
-                                    aria-label="close"
-                                    className="makeStyles-close-80"
-                                    color="inherit"
-                                    onClick={[Function]}
-                                  >
-                                    <Memo />
-                                  </ForwardRef(WithStyles)>,
-                                ]
-                              }
-                              anchorOrigin={
-                                Object {
-                                  "horizontal": "right",
-                                  "vertical": "bottom",
-                                }
-                              }
-                              autoHideDuration={6000}
-                              message={
-                                <span
-                                  id="message-id"
-                                >
-                                  Successful Upload
-                                </span>
-                              }
-                              onClose={[Function]}
-                              open={false}
-                            >
-                              <ForwardRef(Snackbar)
-                                ContentProps={
-                                  Object {
-                                    "aria-describedby": "message-id",
-                                  }
-                                }
-                                action={
-                                  Array [
-                                    <ForwardRef(WithStyles)
-                                      aria-label="close"
-                                      className="makeStyles-close-80"
-                                      color="inherit"
-                                      onClick={[Function]}
-                                    >
-                                      <Memo />
-                                    </ForwardRef(WithStyles)>,
-                                  ]
-                                }
-                                anchorOrigin={
-                                  Object {
-                                    "horizontal": "right",
-                                    "vertical": "bottom",
-                                  }
-                                }
-                                autoHideDuration={6000}
-                                classes={
-                                  Object {
-                                    "anchorOriginBottomCenter": "MuiSnackbar-anchorOriginBottomCenter",
-                                    "anchorOriginBottomLeft": "MuiSnackbar-anchorOriginBottomLeft",
-                                    "anchorOriginBottomRight": "MuiSnackbar-anchorOriginBottomRight",
-                                    "anchorOriginTopCenter": "MuiSnackbar-anchorOriginTopCenter",
-                                    "anchorOriginTopLeft": "MuiSnackbar-anchorOriginTopLeft",
-                                    "anchorOriginTopRight": "MuiSnackbar-anchorOriginTopRight",
-                                    "root": "MuiSnackbar-root",
-                                  }
-                                }
-                                message={
-                                  <span
-                                    id="message-id"
-                                  >
-                                    Successful Upload
-                                  </span>
-                                }
-                                onClose={[Function]}
-                                open={false}
-                              />
-                            </WithStyles(ForwardRef(Snackbar))>
                             <input
                               accept="image/*"
-                              className="makeStyles-input-76"
+                              className="makeStyles-input-86"
                               id="contained-button-file"
                               multiple={true}
                               onChange={[Function]}
@@ -1215,13 +1381,13 @@ exports[`App Layout getselectedImage without result 1`] = `
                               htmlFor="contained-button-file"
                             >
                               <WithStyles(ForwardRef(Fab))
-                                className="makeStyles-button-77"
+                                className="makeStyles-button-87"
                                 component="span"
                                 title="Upload"
                                 variant="extended"
                               >
                                 <ForwardRef(Fab)
-                                  className="makeStyles-button-77"
+                                  className="makeStyles-button-87"
                                   classes={
                                     Object {
                                       "colorInherit": "MuiFab-colorInherit",
@@ -1241,7 +1407,7 @@ exports[`App Layout getselectedImage without result 1`] = `
                                   variant="extended"
                                 >
                                   <WithStyles(ForwardRef(ButtonBase))
-                                    className="MuiFab-root makeStyles-button-77 MuiFab-extended"
+                                    className="MuiFab-root makeStyles-button-87 MuiFab-extended"
                                     component="span"
                                     disabled={false}
                                     focusRipple={true}
@@ -1249,7 +1415,7 @@ exports[`App Layout getselectedImage without result 1`] = `
                                     title="Upload"
                                   >
                                     <ForwardRef(ButtonBase)
-                                      className="MuiFab-root makeStyles-button-77 MuiFab-extended"
+                                      className="MuiFab-root makeStyles-button-87 MuiFab-extended"
                                       classes={
                                         Object {
                                           "disabled": "Mui-disabled",
@@ -1265,7 +1431,7 @@ exports[`App Layout getselectedImage without result 1`] = `
                                     >
                                       <span
                                         aria-disabled={false}
-                                        className="MuiButtonBase-root MuiFab-root makeStyles-button-77 MuiFab-extended"
+                                        className="MuiButtonBase-root MuiFab-root makeStyles-button-87 MuiFab-extended"
                                         onBlur={[Function]}
                                         onDragLeave={[Function]}
                                         onFocus={[Function]}
@@ -1337,35 +1503,159 @@ exports[`App Layout getselectedImage without result 1`] = `
     </Component>
     <Component
       imgList={Array []}
+      notificationControll={[Function]}
+      uploadsetdata={[Function]}
     >
       <div
-        className="makeStyles-root-110"
+        className="makeStyles-root-113"
       >
-        <WithStyles(ForwardRef(GridList))
-          cellHeight={200}
-          className="makeStyles-gridList-111"
-          spacing={1}
+        <Component
+          isDragOver={false}
+          notificationControll={[Function]}
+          setDragOver={[Function]}
+          uploadPath="/Root/Content/IT/ImageLibrary"
+          uploadsetdata={[Function]}
         >
-          <ForwardRef(GridList)
-            cellHeight={200}
-            className="makeStyles-gridList-111"
-            classes={
+          <div
+            className="dropfilearea"
+            onDragEnter={[Function]}
+            onDragLeave={[Function]}
+            onDragOver={[Function]}
+            onDrop={[Function]}
+            style={
               Object {
-                "root": "MuiGridList-root",
+                "display": "inline-block",
+                "filter": undefined,
+                "flexWrap": "wrap",
+                "opacity": 1,
+                "transition": "opacity 300ms",
               }
             }
-            spacing={1}
           >
-            <ul
-              className="MuiGridList-root makeStyles-gridList-111"
+            <div
               style={
                 Object {
-                  "margin": -0.5,
+                  "backgroundColor": "transparent",
+                  "height": "auto",
+                  "opacity": 0,
+                  "position": "relative",
+                  "transition": "opacity 300ms",
+                  "width": "auto",
                 }
               }
-            />
-          </ForwardRef(GridList)>
-        </WithStyles(ForwardRef(GridList))>
+            >
+              <ForwardRef
+                style={
+                  Object {
+                    "height": "250px",
+                    "marginTop": "0px",
+                    "position": "absolute",
+                    "width": "100%",
+                  }
+                }
+              >
+                <WithStyles(ForwardRef(SvgIcon))
+                  style={
+                    Object {
+                      "height": "250px",
+                      "marginTop": "0px",
+                      "position": "absolute",
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <ForwardRef(SvgIcon)
+                    classes={
+                      Object {
+                        "colorAction": "MuiSvgIcon-colorAction",
+                        "colorDisabled": "MuiSvgIcon-colorDisabled",
+                        "colorError": "MuiSvgIcon-colorError",
+                        "colorPrimary": "MuiSvgIcon-colorPrimary",
+                        "colorSecondary": "MuiSvgIcon-colorSecondary",
+                        "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
+                        "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
+                        "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
+                        "root": "MuiSvgIcon-root",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": "250px",
+                        "marginTop": "0px",
+                        "position": "absolute",
+                        "width": "100%",
+                      }
+                    }
+                  >
+                    <svg
+                      aria-hidden="true"
+                      className="MuiSvgIcon-root"
+                      focusable="false"
+                      role="presentation"
+                      style={
+                        Object {
+                          "height": "250px",
+                          "marginTop": "0px",
+                          "position": "absolute",
+                          "width": "100%",
+                        }
+                      }
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M0 0h24v24H0V0z"
+                        fill="none"
+                      />
+                      <path
+                        d="M19.21 12.04l-1.53-.11-.3-1.5C16.88 7.86 14.62 6 12 6 9.94 6 8.08 7.14 7.12 8.96l-.5.95-1.07.11C3.53 10.24 2 11.95 2 14c0 2.21 1.79 4 4 4h13c1.65 0 3-1.35 3-3 0-1.55-1.22-2.86-2.79-2.96zm-5.76.96v3h-2.91v-3H8l4-4 4 4h-2.55z"
+                        opacity=".3"
+                      />
+                      <path
+                        d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95C8.08 7.14 9.94 6 12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5 1.53.11c1.56.1 2.78 1.41 2.78 2.96 0 1.65-1.35 3-3 3zM8 13h2.55v3h2.9v-3H16l-4-4z"
+                      />
+                    </svg>
+                  </ForwardRef(SvgIcon)>
+                </WithStyles(ForwardRef(SvgIcon))>
+              </ForwardRef>
+            </div>
+            <WithStyles(ForwardRef(GridList))
+              cellHeight={200}
+              className="makeStyles-gridList-114"
+              spacing={1}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+            >
+              <ForwardRef(GridList)
+                cellHeight={200}
+                className="makeStyles-gridList-114"
+                classes={
+                  Object {
+                    "root": "MuiGridList-root",
+                  }
+                }
+                spacing={1}
+                style={
+                  Object {
+                    "opacity": 1,
+                  }
+                }
+              >
+                <ul
+                  className="MuiGridList-root makeStyles-gridList-114"
+                  style={
+                    Object {
+                      "margin": -0.5,
+                      "opacity": 1,
+                    }
+                  }
+                />
+              </ForwardRef(GridList)>
+            </WithStyles(ForwardRef(GridList))>
+          </div>
+        </Component>
       </div>
     </Component>
   </div>

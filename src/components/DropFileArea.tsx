@@ -1,10 +1,9 @@
 import CloudUploadTwoTone from '@material-ui/icons/CloudUploadTwoTone'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useRepository } from '../hooks/use-repository'
 
 export const DropFileArea: React.FunctionComponent<{
   uploadPath: string
-  style?: React.CSSProperties
   uploadsetdata: () => void
   notificationControll: (isOpen: boolean) => void
   setDragOver: (isOver: boolean) => void
@@ -13,25 +12,20 @@ export const DropFileArea: React.FunctionComponent<{
   const repo = useRepository()
   const [scrollPosition, setScroll] = useState(0)
 
-  useEffect(() => {
-    window.onscroll = function() {
-      setScroll(window.pageYOffset)
-    }
-  }, [])
-
   return (
     <div
+      className="dropfilearea"
       style={{
-        display: 'flex',
+        display: 'inline-block',
         flexWrap: 'wrap',
         filter: props.isDragOver ? 'blur(1px)' : undefined,
         opacity: props.isDragOver ? 0.8 : 1,
         transition: 'opacity 300ms',
-        ...props.style,
       }}
       onDragEnter={ev => {
         ev.stopPropagation()
         ev.preventDefault()
+        setScroll(window.pageYOffset)
         props.setDragOver(true)
       }}
       onDragLeave={ev => {

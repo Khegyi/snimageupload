@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AdvancedGridList Matches snapshot 1`] = `
+exports[`SimpleAppBar Matches snapshot 1`] = `
 <div
   className="makeStyles-root-1"
 >
@@ -15,6 +15,7 @@ exports[`AdvancedGridList Matches snapshot 1`] = `
         Photos
       </WithStyles(ForwardRef(Typography))>
       <Component
+        notificationControll={[MockFunction]}
         uploadsetdata={[MockFunction]}
       />
     </WithStyles(ForwardRef(Toolbar))>
