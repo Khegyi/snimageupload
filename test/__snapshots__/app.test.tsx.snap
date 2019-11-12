@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Layout Matches snapshot 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundImage": "url(sensenet_logo_transparent.png)",
+      "backgroundPosition": "center",
+      "backgroundRepeat": "no-repeat",
+      "backgroundSize": "auto",
+      "display": "flex",
+      "flexDirection": "column",
+      "height": "100%",
+      "width": "100%",
+    }
+  }
+>
+  <WithStyles(ForwardRef(Snackbar))
+    ContentProps={
+      Object {
+        "aria-describedby": "message-id",
+      }
+    }
+    action={
+      Array [
+        <ForwardRef(WithStyles)
+          aria-label="close"
+          className="makeStyles-close-3"
+          color="inherit"
+          onClick={[Function]}
+        >
+          <Memo />
+        </ForwardRef(WithStyles)>,
+      ]
+    }
+    anchorOrigin={
+      Object {
+        "horizontal": "right",
+        "vertical": "bottom",
+      }
+    }
+    autoHideDuration={6000}
+    message={
+      <span
+        id="message-id"
+      >
+        Successful Upload
+      </span>
+    }
+    onClose={[Function]}
+    open={false}
+  />
+  <CssBaseline />
+  <Component
+    notificationControll={[Function]}
+    uploadsetdata={[Function]}
+  />
+  <Component
+    imgList={Array []}
+    notificationControll={[Function]}
+    uploadsetdata={[Function]}
+  />
+</div>
+`;

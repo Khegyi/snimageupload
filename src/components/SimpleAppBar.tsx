@@ -1,13 +1,11 @@
 import React from 'react'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
-import { AppBar, IconButton, Toolbar, Typography } from '@material-ui/core'
+import { AppBar, Toolbar, Typography } from '@material-ui/core'
 import { UploadControll } from './UploadControll'
-
 interface SimpleAppBarProps {
   uploadsetdata: () => void
   notificationControll: (isOpen: boolean) => void
 }
-
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -43,9 +41,7 @@ export const SimpleAppBar: React.FunctionComponent<SimpleAppBarProps> = props =>
           <Typography variant="h6" className={classes.title}>
             Photos
           </Typography>
-          <IconButton edge="start" color="inherit" aria-label="Close">
-            <UploadControll uploadsetdata={props.uploadsetdata} notificationControll={props.notificationControll} />
-          </IconButton>
+          <UploadControll uploadsetdata={props.uploadsetdata} notificationControll={props.notificationControll} />
         </Toolbar>
       </AppBar>
     </div>
