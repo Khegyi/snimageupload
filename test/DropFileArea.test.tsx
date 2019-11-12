@@ -20,7 +20,7 @@ describe('DropFileArea', () => {
     const wrapper = shallow(<DropFileArea {...testprop} />)
     expect(wrapper).toMatchSnapshot()
   })
-  it('onDragEnter', () => {
+  it('should set setDragOver on DragEnter', () => {
     const wrapper = mount(<DropFileArea {...testprop} />)
     act(() => {
       wrapper.find('.dropfilearea').prop('onDragEnter')!({
@@ -31,7 +31,7 @@ describe('DropFileArea', () => {
 
     expect(testprop.setDragOver).toBeCalledWith(true)
   })
-  it('onDragLeave', () => {
+  it('should set setDragOver on DragLeave', () => {
     const wrapper = mount(<DropFileArea {...testprop} />)
     act(() => {
       wrapper.find('.dropfilearea').prop('onDragLeave')!({
@@ -42,7 +42,7 @@ describe('DropFileArea', () => {
 
     expect(testprop.setDragOver).toBeCalledWith(false)
   })
-  it('onDragOver', () => {
+  it('should set setDragOver on DragOver', () => {
     const wrapper = mount(<DropFileArea {...testprop} />)
     act(() => {
       wrapper.find('.dropfilearea').prop('onDragOver')!({
@@ -53,7 +53,7 @@ describe('DropFileArea', () => {
 
     expect(testprop.setDragOver).toBeCalledWith(true)
   })
-  it('onDrop', async () => {
+  it('should set setDragOver and start Upload on Drop', async () => {
     const repository = {
       upload: {
         fromDropEvent: jest.fn(),

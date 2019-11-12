@@ -13,6 +13,8 @@ describe('App Layout', () => {
     const l = shallow(<App />)
     expect(l).toMatchSnapshot()
   })
+})
+describe('Get Images from repository', () => {
   it('getselectedImage with result', async () => {
     const repository = {
       loadCollection: () => {
@@ -84,7 +86,9 @@ describe('App Layout', () => {
     })
     expect(repository.loadCollection).toBeCalledTimes(2)
   })
-  it('Show Notification', async () => {
+})
+describe('Notification Controll', () => {
+  it('should show notification', async () => {
     const repository = {
       loadCollection: () => {
         return { d: { results: [] } }
@@ -114,7 +118,7 @@ describe('App Layout', () => {
       ).toBe(true)
     })
   })
-  it('Close Notification', async () => {
+  it('should close notification', async () => {
     const repository = {
       loadCollection: () => {
         return { d: { results: [] } }

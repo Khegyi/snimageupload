@@ -10,7 +10,7 @@ describe('AdvancedGridList', () => {
     uploadsetdata: jest.fn(),
     notificationControll: jest.fn(),
   }
-  it('DragSetter', () => {
+  it('should set isDragover to be true', () => {
     const wrapper = shallow(<AdvancedGridList {...testprops} />)
     wrapper.find(DropFileArea).prop('setDragOver')(true)
 
@@ -22,7 +22,7 @@ describe('AdvancedGridList', () => {
     ).toBe(true)
   })
 })
-describe('pickTile', () => {
+describe('pickTile function', () => {
   it('should return 2', () => {
     const value = pickTile(456)
     expect(value).toBe(2)

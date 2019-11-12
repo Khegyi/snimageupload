@@ -14,7 +14,7 @@ describe('UploadControll', () => {
     const wrapper = shallow(<UploadControll {...testprop} />)
     expect(wrapper).toMatchSnapshot()
   })
-  it('Upload function', async () => {
+  it('should start the Upload function', async () => {
     const repository = {
       upload: {
         fromFileList: jest.fn(),
