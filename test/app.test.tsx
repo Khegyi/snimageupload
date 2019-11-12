@@ -30,7 +30,12 @@ describe('App Layout', () => {
         </RepositoryContext.Provider>,
       )
     })
-    expect(wrapper).toMatchSnapshot()
+    expect(
+      wrapper
+        .update()
+        .find(AdvancedGridList)
+        .prop('imgList'),
+    ).not.toBe([])
   })
   it('getselectedImage without result', async () => {
     const repository = {
@@ -48,7 +53,12 @@ describe('App Layout', () => {
           <App />
         </RepositoryContext.Provider>,
       )
-      expect(wrapper).toMatchSnapshot()
+      expect(
+        wrapper
+          .update()
+          .find(AdvancedGridList)
+          .prop('imgList'),
+      ).toStrictEqual([])
     })
   })
   it('Reload Images', async () => {
