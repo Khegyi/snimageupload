@@ -1,14 +1,13 @@
 import React from 'react'
 import CloudUpload from '@material-ui/icons/CloudUpload'
 import { ConstantContent } from '@sensenet/client-core'
-import { Fab, IconButton } from '@material-ui/core'
-import CloseIcon from '@material-ui/icons/Close'
-import Snackbar from '@material-ui/core/Snackbar'
+import { Fab } from '@material-ui/core'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
-import { useRepository } from '../hooks/use-repository'
+import { useRepository } from '@sensenet/hooks-react'
 
 interface UploadControllProps {
   uploadsetdata: () => void
+  notificationControll: (isOpen: boolean) => void
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -41,30 +40,12 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const UploadControll: React.FunctionComponent<UploadControllProps> = props => {
   const repo = useRepository()
-  const [open, setOpen] = React.useState(false)
   const classes = useStyles()
   /**
    * Handle Uploaded File
    * @param e any
    */
-  function handleClick() {
-    setOpen(true)
-  }
-  /**
-   * Handle Uploaded File
-   * @param e any
-   */
-  function handleClose() {
-    setOpen(false)
-  }
-
-  /**
-   * Handle Uploaded File
-   * @param e any
-   */
   async function pickFile(e: any) {
-    const { files } = e.target
-    console.log(files)
     await repo.upload.fromFileList({
       binaryPropertyName: 'Binary',
       overwrite: true,
@@ -73,31 +54,12 @@ export const UploadControll: React.FunctionComponent<UploadControllProps> = prop
       fileList: e.target.files,
       contentTypeName: 'Image',
     })
-    handleClick()
-    console.log('finished')
+    props.notificationControll(true)
     props.uploadsetdata()
   }
 
   return (
     <div>
-      <Snackbar
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'right',
-        }}
-        open={open}
-        autoHideDuration={6000}
-        onClose={handleClose}
-        ContentProps={{
-          'aria-describedby': 'message-id',
-        }}
-        message={<span id="message-id">Successful Upload</span>}
-        action={[
-          <IconButton key="close" aria-label="close" color="inherit" className={classes.close} onClick={handleClose}>
-            <CloseIcon />
-          </IconButton>,
-        ]}
-      />
       <input
         accept="image/*"
         onChange={e => pickFile(e)}
