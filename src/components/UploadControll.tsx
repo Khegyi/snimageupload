@@ -3,7 +3,7 @@ import CloudUpload from '@material-ui/icons/CloudUpload'
 import { ConstantContent } from '@sensenet/client-core'
 import { Fab } from '@material-ui/core'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
-import { useRepository } from '../hooks/use-repository'
+import { useRepository } from '@sensenet/hooks-react'
 
 interface UploadControllProps {
   uploadsetdata: () => void

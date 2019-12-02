@@ -1,6 +1,6 @@
 import CloudUploadTwoTone from '@material-ui/icons/CloudUploadTwoTone'
-import React, { useState } from 'react'
-import { useRepository } from '../hooks/use-repository'
+import React, { useEffect, useState } from 'react'
+import { useRepository } from '@sensenet/hooks-react'
 
 export const DropFileArea: React.FunctionComponent<{
   uploadPath: string
