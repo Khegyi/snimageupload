@@ -7,7 +7,7 @@ import { useRepository } from '@sensenet/hooks-react'
 
 interface UploadControllProps {
   uploadsetdata: () => void
-  notificationControll: (onoff: boolean) => void
+  notificationControll: (isOpen: boolean) => void
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -32,6 +32,9 @@ const useStyles = makeStyles((theme: Theme) =>
       width: '100%',
       marginRight: '0',
     },
+    close: {
+      padding: theme.spacing(0.5),
+    },
   }),
 )
 
@@ -42,22 +45,17 @@ export const UploadControll: React.FunctionComponent<UploadControllProps> = prop
    * Handle Uploaded File
    * @param e any
    */
-  async function pickFile(e: React.ChangeEvent<HTMLInputElement>) {
-    const { files } = e.target
-    console.log(files)
-    if (!e.target.files) {
-      return
-    }
-    await repo.upload.file({
+  async function pickFile(e: any) {
+    await repo.upload.fromFileList({
       binaryPropertyName: 'Binary',
       overwrite: true,
+      createFolders: true,
       parentPath: `${ConstantContent.PORTAL_ROOT.Path}/Content/IT/ImageLibrary`,
-      file: e.target.files[0],
+      fileList: e.target.files,
       contentTypeName: 'Image',
     })
-
-    props.uploadsetdata()
     props.notificationControll(true)
+    props.uploadsetdata()
   }
 
   return (

@@ -25,6 +25,7 @@ export const useStyles = makeStyles(theme => ({
     padding: theme.spacing(0.5),
   },
 }))
+
 /**
  * The main entry point of your app. You can start h@cking from here ;)
  */
@@ -33,8 +34,7 @@ export const App: React.FunctionComponent = () => {
   const [data, setData] = useState<Image[]>([])
   const classes = useStyles()
   const [isNotificationShown, ShowNotification] = React.useState<boolean>(false)
-  const [uploaddata, setUploaddata] = React.useState<boolean>(false)
-
+  const [reloadToken, setReloadToken] = useState(1)
   /** Display the notificationbar about successful upload
    * @param {boolean} switcher Should the notification shown or not
    */
@@ -48,47 +48,38 @@ export const App: React.FunctionComponent = () => {
     ShowNotification(false)
   }
   /**
-   * Sets the UploadData
-   * Determinate whatever an upload has accord or not
+   * Hide the notificationbar
    */
   function setUploaddataFunction() {
-    setUploaddata(true)
+    setReloadToken(Math.random())
   }
-  /**
-   * Fetches the images from the repository.
-   */
-  async function loadImages(): Promise<void> {
-    const result = await repo.loadCollection<Image>({
-      path: `${ConstantContent.PORTAL_ROOT.Path}/Content/IT/ImageLibrary`,
-      oDataOptions: {
-        select: [
-          'Binary',
-          'DisplayName',
-          'Description',
-          'CreationDate',
-          'CreatedBy',
-          'Height',
-          'ModificationDate',
-          'Size',
-          'Width',
-        ],
-        expand: ['CreatedBy'],
-      },
-    })
-    setData(result.d.results)
-  }
-  useEffect(() => {
-    if (uploaddata) {
-      loadImages()
-      setUploaddata(false)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [uploaddata])
 
   useEffect(() => {
+    /**
+     * Fetches the images from the repository.
+     */
+    async function loadImages(): Promise<void> {
+      const result = await repo.loadCollection<Image>({
+        path: `${ConstantContent.PORTAL_ROOT.Path}/Content/IT/ImageLibrary`,
+        oDataOptions: {
+          select: [
+            'Binary',
+            'DisplayName',
+            'Description',
+            'CreationDate',
+            'CreatedBy',
+            'Height',
+            'ModificationDate',
+            'Size',
+            'Width',
+          ],
+          expand: ['CreatedBy'],
+        },
+      })
+      setData(result.d.results)
+    }
     loadImages()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [repo])
+  }, [repo, reloadToken])
   return (
     <div
       style={{
