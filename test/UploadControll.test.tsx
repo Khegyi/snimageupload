@@ -1,9 +1,8 @@
 import { mount, shallow } from 'enzyme'
 import React from 'react'
 import { act } from 'react-dom/test-utils'
-
+import { RepositoryContext } from '@sensenet/hooks-react'
 import { UploadControll } from '../src/components/UploadControll'
-import { RepositoryContext } from '../src/context/repository-provider'
 
 describe('UploadControll', () => {
   const testprop = {

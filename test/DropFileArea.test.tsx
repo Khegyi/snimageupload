@@ -1,8 +1,8 @@
 import { mount, shallow } from 'enzyme'
 import React from 'react'
 import { act } from 'react-dom/test-utils'
+import { RepositoryContext } from '@sensenet/hooks-react'
 import { DropFileArea } from '../src/components/DropFileArea'
-import { RepositoryContext } from '../src/context/repository-provider'
 
 describe('DropFileArea', () => {
   const testprop = {

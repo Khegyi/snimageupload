@@ -1,19 +1,13 @@
-import { mount, shallow } from 'enzyme'
+import { mount } from 'enzyme'
 import React from 'react'
 import { act } from 'react-dom/test-utils'
 import { Snackbar } from '@material-ui/core'
+import { RepositoryContext } from '@sensenet/hooks-react'
 import { App } from '../src/app'
-import { RepositoryContext } from '../src/context/repository-provider'
 import { SimpleAppBar } from '../src/components/SimpleAppBar'
 import { AdvancedGridList } from '../src/components/AdvancedGridList'
 import { images } from './mocks/images'
 
-describe('App Layout', () => {
-  it('Matches snapshot', () => {
-    const l = shallow(<App />)
-    expect(l).toMatchSnapshot()
-  })
-})
 describe('Get Images from repository', () => {
   it('getselectedImage with result', async () => {
     const repository = {
