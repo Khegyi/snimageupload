@@ -74,7 +74,7 @@
     "@sensenet/default-content-types": "^2.0.0",
     "@sensenet/hooks-react": "^1.0.1",
     "@sensenet/repository-events": "^1.4.4",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2"
   },
